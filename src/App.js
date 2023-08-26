@@ -6,7 +6,7 @@ import { Model } from './Car';
 import { Effects } from './Effects';
 
 export default function App() {
-  const pane = useRef(null);
+ const pane = new Pane();
   const params = useRef({
     color: '#ff9621',
     realism: true,
@@ -14,7 +14,6 @@ export default function App() {
   });
 
   useEffect(() => {
-    pane.current = new pane();
     pane.current.addInput(params.current, 'color');
     pane.current.addInput(params.current, 'realism');
     pane.current.addInput(params.current, 'importanceSampling');
