@@ -22,10 +22,10 @@ export default function App() {
   });
 
   // Load the default car model
-  const { scene: defaultCarModel } = useGLTF('/public/car-model.glb');
+  const { scene: defaultCarModel } = useGLTF('/car-model.glb');
   
   // Load the custom car model if specified
-  const { scene: customCarModel } = useGLTF(carRender || '/public/car-model.glb');
+  const { scene: customCarModel } = useGLTF(carRender || '/car-model.glb');
 
   return (
     <Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows camera={{ position: [4, 0, 6], fov: 35 }}>
