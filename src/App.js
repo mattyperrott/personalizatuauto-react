@@ -7,19 +7,19 @@ import { Model } from './Car';  // Import your Model component
 import { Effects } from './Effects';  // Import your Effects component
 
 export default function App() {
-  const { color, realism, importanceSampling, carRender, background } = useControls({
-    color: '#ff9621',
-    realism: true,
-    importanceSampling: true,
-    'Car Render': image({ accept: '.glb' }), // Only accept .glb files
-    'Background': image(),
-    screenshot: button(() => {
-      const link = document.createElement('a');
-      link.setAttribute('download', 'canvas.png');
-      link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'));
-      link.click();
-    })
-  });
+ const { color, realism, importanceSampling, carRender, background } = useControls({
+  color: '#ff9621',
+  realism: true,
+  importanceSampling: true,
+  'Car Render': { value: null, input: { type: 'file', accept: '.glb' } }, // Only accept .glb files
+  'Background': { value: null, input: { type: 'file' } },
+  screenshot: button(() => {
+    const link = document.createElement('a');
+    link.setAttribute('download', 'canvas.png');
+    link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'));
+    link.click();
+  })
+});
 
   // Load the default car model
   const { scene: defaultCarModel } = useGLTF('/car-model.glb');
