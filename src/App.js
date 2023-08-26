@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Center, AccumulativeShadows, RandomizedLight, Environment, OrbitControls } from '@react-three/drei';
 import { useEffect, useRef } from 'react';
-import { tweakPane } from './tweakpane.js';
+import { pane } from './tweakpane.js';
 import { Model } from './Car';
 import { Effects } from './Effects';
 
@@ -14,7 +14,7 @@ export default function App() {
   });
 
   useEffect(() => {
-    pane.current = new tweakPane();
+    pane.current = new pane();
     pane.current.addInput(params.current, 'color');
     pane.current.addInput(params.current, 'realism');
     pane.current.addInput(params.current, 'importanceSampling');
